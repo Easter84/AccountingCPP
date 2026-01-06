@@ -129,6 +129,19 @@
   <ItemGroup>
     <Text Include="Readme.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="models\accounts.cpp" />
+    <ClCompile Include="models\checking.cpp" />
+    <ClCompile Include="models\credit.cpp" />
+    <ClCompile Include="models\savings.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="models\accounts.h" />
+    <ClInclude Include="models\checking.h" />
+    <ClInclude Include="models\credit.h" />
+    <ClInclude Include="models\savings.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
