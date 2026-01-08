@@ -9,11 +9,21 @@ private:
 
 	// Constructor for derived class with attributes
 public:
-	CreditAccount(const std::string& accountName, 
-		double startingBalance, 
-		double limit);
+	CreditAccount(const std::string& accountName = "Credit",
+		double startingBalance = 0.0, 
+		double limit = 0.0);
 
 	// Overriding parent methods
 	bool withdraw(double amount) override;
 	void displayAccountInfo() const override;
+
+	// Enum for Credit account menu options
+	enum class CreditMenuOption
+	{
+		Deposit = 1,
+		Withdraw,
+		Balance,
+		ViewInterest,
+		Exit
+	};
 };

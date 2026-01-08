@@ -131,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="menus\menus.cpp" />
     <ClCompile Include="models\accounts.cpp" />
     <ClCompile Include="models\checking.cpp" />
     <ClCompile Include="models\credit.cpp" />
@@ -138,8 +139,8 @@
     <ClCompile Include="utils\input_validation.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="menus\menus.h" />
     <ClInclude Include="models\accounts.h" />
-    <ClInclude Include="models\account_enum.h" />
     <ClInclude Include="models\checking.h" />
     <ClInclude Include="models\credit.h" />
     <ClInclude Include="models\savings.h" />

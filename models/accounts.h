@@ -1,5 +1,4 @@
 #pragma once
-#include "account_enum.h"
 #include <string>
 
 class Account
@@ -11,7 +10,7 @@ protected:
 
 	// Public interface
 public:
-	Account(const std::string& accountName, double startingBalance);
+	Account(const std::string& accountName, double startingBalance = 0.0);
 
 	// Virtual destructor for proper cleanup of derived classes
 	virtual ~Account() = default;
@@ -25,4 +24,15 @@ public:
 
 	// Concret method implementation, retrieves the current balance and is never overridden
 	double getBalance() const;
+	const std::string& getName() const;
+
+
+	// Used for displaying Account transaction results
+	enum class TransactionResult
+	{
+		SUCCESS,
+		INSUFFICIENT_FUNDS,
+		INVALID_ACCOUNT,
+		OVER_CREDIT_LIMIT,
+	};
 };

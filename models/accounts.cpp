@@ -40,3 +40,8 @@ double Account::getBalance() const
 	// Retrieves the current account balance
 	return balance;
 }
+
+const std::string& Account::getName() const
+{
+	return name;
+}

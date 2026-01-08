@@ -1,8 +1,8 @@
 #include "savings.h"
 #include <iostream>
 
-Savings::Savings(const std::string& accountName, double startingBalance)
-	: Account(accountName, startingBalance)
+Savings::Savings(const std::string& accountName)
+	: Account(accountName)
 {
 }
 
