@@ -33,6 +33,9 @@
     <ClCompile Include="models\credit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="utils\input_validation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="models\accounts.h">
@@ -45,6 +48,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="models\credit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="models\account_enum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\input_validation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

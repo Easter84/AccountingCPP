@@ -1,4 +1,5 @@
 #pragma once
+#include "account_enum.h"
 #include <string>
 
 class Account
