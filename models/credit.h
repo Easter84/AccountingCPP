@@ -1,17 +1,22 @@
 #pragma once
 #include "accounts.h"
+#include "../utils/menu_ui.h"
 
 class CreditAccount : public Account
 {
 	// Adds a new attribute to the derived class, that the parent doesn't have
 private:
 	double creditLimit;
+	double interestRate;
 
 	// Constructor for derived class with attributes
 public:
-	CreditAccount(const std::string& accountName = "Credit",
-		double startingBalance = 0.0, 
-		double limit = 0.0);
+	CreditAccount(
+		const std::string& accountName = "Credit",
+		double startingBalance = 0.0,
+		double limit = 1000.0,
+		double apr = 15.0
+	);
 
 	// Overriding parent methods
 	TransactionResult withdraw(double amount) override;
@@ -26,4 +31,16 @@ public:
 		ViewInterest,
 		Exit
 	};
+
+	static inline const std::vector<MenuItem<CreditAccount::CreditMenuOption>> CreditMenu =
+	{
+		{ CreditAccount::CreditMenuOption::Deposit, "Deposit"},
+		{ CreditAccount::CreditMenuOption::Withdraw, "Withdrawl"},
+		{ CreditAccount::CreditMenuOption::Balance, "Balance"}, 
+		{ CreditAccount::CreditMenuOption::ViewInterest, "Yearly APR"},
+		{ CreditAccount::CreditMenuOption::Exit, "Go back"}
+	};
+
+	void handleMenuOption(CreditMenuOption opiton);
+	double getInterestRate() const;
 };

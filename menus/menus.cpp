@@ -64,5 +64,23 @@ void showSavingsMenu(Savings& savings)
 
 void showCreditMenu(CreditAccount& credit)
 {
-	// Implment logic here
+	while (true)
+	{
+		showMenu(credit.CreditMenu);
+		int choice = get_int("\nSelect Option: ");
+
+		if (choice < 1 || choice > 5)
+		{
+			std::cout << "Invalid option. Try again.\n";
+			continue;
+		}
+
+		CreditAccount::CreditMenuOption option =
+			static_cast<CreditAccount::CreditMenuOption>(choice);
+
+		if (option == CreditAccount::CreditMenuOption::Exit)
+			break;
+
+		credit.handleMenuOption(option);
+	}
 }
