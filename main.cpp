@@ -14,10 +14,10 @@ int main() {
 
 	bool running = true;
 
-	while (true)
+	while (running)
 	{
 		showMainMenu();
-		int choice = get_int("Select Option: ");
+		int choice = get_int("\nSelect Option: ");
 		switch (choice)
 		{
 			case 1:
@@ -31,10 +31,10 @@ int main() {
 				break;
 			case 4:
 				running = false;
-				std::cout << "Exiting application. Goodbye!" << std::endl;
+				std::cout << "\nExiting application. Goodbye!" << std::endl;
 				break;
 			default:
-				std::cout << "Invalid option. Please try again." << std::endl;
+				std::cout << "\nInvalid option. Please try again." << std::endl;
 		}
 	}
 	return 0;

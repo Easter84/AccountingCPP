@@ -137,6 +137,7 @@
     <ClCompile Include="models\credit.cpp" />
     <ClCompile Include="models\savings.cpp" />
     <ClCompile Include="utils\input_validation.cpp" />
+    <ClCompile Include="utils\transaction_ui.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="menus\menus.h" />
@@ -145,6 +146,8 @@
     <ClInclude Include="models\credit.h" />
     <ClInclude Include="models\savings.h" />
     <ClInclude Include="utils\input_validation.h" />
+    <ClInclude Include="utils\menu_ui.h" />
+    <ClInclude Include="utils\transaction_ui.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

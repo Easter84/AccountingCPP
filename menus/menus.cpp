@@ -4,57 +4,65 @@
 #include "menus.h"
 #include <iostream>
 #include "../utils/input_validation.h"
+#include "../utils/menu_ui.h"
 
 void showMainMenu()
 {
-	std::cout << "1. Checking Account\n2. Savings Account\n3. Credit Account\n4. Exit\n";
+	std::cout 
+		<< "===== Accounting Main Menu =====\n\n"
+		<< "1. Checking Account\n" 
+		<< "2. Savings Account\n"
+		<<"3. Credit Account\n" 
+		<< "4.Exit\n";
 }
 
-void showCheckingMenu(CheckingAccount& account)
+void showCheckingMenu(CheckingAccount& checking)
 {
-	// Starts a while loop to keep the menu alive till the user ends it.
-	bool running = true;
-	while(running)
+	while (true)
 	{
-		std::cout
-			<< "1. Deposit\n"
-			<< "2. Withdraw\n"
-			<< "3. Check Balance\n"
-			<< "4. Exit\n";
+		showMenu(checking.CheckingMenu);
+		int choice = get_int("\nSelect Option: ");
 
-		int choice = get_int("Select an option: ");
+		if (choice < 1 || choice > 4)
+		{
+			std::cout << "Invalid option. Try again.\n";
+			continue;
+		}
 
-		if (choice == 4)
-			running = false;
-		// Gets the correct methods from the declared Enum in the Checking Account Class
-		account.handleMenuOption(
-			static_cast<CheckingAccount::CheckingMenuOption>(choice)
-		);
-	}
+		CheckingAccount::CheckingMenuOption option =
+			static_cast<CheckingAccount::CheckingMenuOption>(choice);
 
-}
+		if (option == CheckingAccount::CheckingMenuOption::Exit)
+			break;
 
-void showSavingsMenu(Savings& account)
-{
-	bool running = true;
-	while (running)
-	{
-		std::cout
-			<< "1. Deposit\n"
-			<< "2. Withdraw\n"
-			<< "3. Balance\n"
-			<< "4. Interest\n"
-			<< "5. Exit";
-
-		int choice = get_int("Select an option: ");
-
-		if (choice == 5)
-			running = false;
-		// Create logic for menu in savings.cpp
+		checking.handleMenuOption(option);
 	}
 }
 
-void showCreditMenu(CreditAccount& account)
+void showSavingsMenu(Savings& savings)
+{
+	while (true)
+	{
+		showMenu(savings.SavingsMenu);
+		int choice = get_int("\nSelect Option: ");
+
+		if (choice < 1 || choice > 5)
+		{
+			std::cout << "Invalid option. Try again.\n";
+			continue;
+		}
+
+		Savings::SavingsMenuOption option =
+			static_cast<Savings::SavingsMenuOption>(choice);
+
+		if (option == Savings::SavingsMenuOption::Exit)
+			break;
+
+		savings.handleMenuOption(option);
+	}
+}
+
+void showCreditMenu(CreditAccount& credit)
 {
 	// Implment logic here
 }

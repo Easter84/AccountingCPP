@@ -14,7 +14,7 @@ public:
 		double limit = 0.0);
 
 	// Overriding parent methods
-	bool withdraw(double amount) override;
+	TransactionResult withdraw(double amount) override;
 	void displayAccountInfo() const override;
 
 	// Enum for Credit account menu options

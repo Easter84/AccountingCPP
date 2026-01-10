@@ -7,37 +7,33 @@ Account::Account(const std::string& accountName, double startingBalance)
 {
 }
 
-bool Account::deposit(double amount)
+Account::TransactionResult Account::deposit(double amount)
 {
-	// If the deposit amount is positive, add it to the balance and return true
-	if (amount > 0)
+	// Checks to ensure the amount deposited is greater than zero
+	if (amount <= 0)
 	{
-		balance += amount;
-		return true;
+		return TransactionResult::INVALID_AMOUNT;
 	}
-
-	// Invalid deposit amount
-	return false;
-	
+	// Deposits set amount
+	balance += amount;
+	return TransactionResult::SUCCESS;	
 }
 
-bool Account::withdraw(double amount)
+Account::TransactionResult Account::withdraw(double amount)
 {
-	// Checks if the withdrawal amount is valid and within available balance
-	if (amount > balance || amount <= 0)
-	{
-		return false; // Insufficient funds or invalid amount
-	}
+	// Prevent overdrafts adn nonsensical withdrawals
+	if (amount <= 0)
+		return TransactionResult::INVALID_AMOUNT;
 
-	// Deduct the amount from the balance and return true
+	if (amount > balance)
+		return TransactionResult::INSUFFICIENT_FUNDS;
+
 	balance -= amount;
-	return true;
+	return TransactionResult::SUCCESS;
 }
 
-// Returns the current account balance
 double Account::getBalance() const
 {
-	// Retrieves the current account balance
 	return balance;
 }
 

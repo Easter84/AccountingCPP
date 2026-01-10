@@ -1,6 +1,7 @@
 #include "checking.h"
 #include <iostream>
 #include "../utils/input_validation.h"
+#include "../utils/transaction_ui.h"
 
 // Constructor for CheckingAccount, calls the base class constructor
 CheckingAccount::CheckingAccount(const std::string& accountName)
@@ -10,38 +11,39 @@ CheckingAccount::CheckingAccount(const std::string& accountName)
 
 void CheckingAccount::displayAccountInfo() const
 {
-	// Display checking account information
+	// Shows an easy to read summary of the account
 	std::cout << "Checking Account: " << getName() << ", Balance: $" << getBalance() << std::endl;
 }
+
 
 void CheckingAccount::handleMenuOption(CheckingMenuOption option)
 {
 	switch (option)
 	{
+		default:
+			std::cout << "Invalid menu option.\n";
+			return;
+
 		case CheckingMenuOption::Deposit:
 		{
-			double amount = get_double("Enter deposit amount: ");
-			if ((amount) <= 0)
-			{
-				std::cout << "Amount can not be negative";
-			}
-
-			deposit(amount);
+			handleDepositUI(*this);
 			return;
 		}
+
 		case CheckingMenuOption::Withdraw:
 		{
-			// logic here
+			handleWithdrawUI(*this);
 			return;
 		}
+
 		case CheckingMenuOption::Balance:
 		{
-			displayAccountInfo();
+			this->displayAccountInfo();
 			return;
 		}
 		case CheckingMenuOption::Exit:
 		{
-			std::cout << "Returning to main menu";
+			handleReturnMenuUI(*this);
 			return;
 		}
 	};

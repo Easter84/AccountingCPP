@@ -6,13 +6,13 @@ CreditAccount::CreditAccount(const std::string& accountName, double startingBala
 {
 }
 
-bool CreditAccount::withdraw(double amount)
+Account::TransactionResult CreditAccount::withdraw(double amount)
 {
 	if (amount <= 0 || balance - amount < -creditLimit)
-		return false;
+		return TransactionResult::OVER_CREDIT_LIMIT;
 
 	balance -= amount;
-	return true;
+	return TransactionResult::SUCCESS;
 }
 
 void CreditAccount::displayAccountInfo() const
