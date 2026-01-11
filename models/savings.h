@@ -6,14 +6,11 @@
 
 class Savings : public Account
 {
-private:
-	double yearlyInterestRate;
 
 public:
 	// Public constructor for Savings account
 	Savings(const std::string& accountName,
-		double startingBalance,
-		double interestRate = 3.0
+		double currentBalance
 	);
 
 	// Enum for Savings account menu options
@@ -38,7 +35,4 @@ public:
 	// Override displayAccountInfo to show savings account details
 	void displayAccountInfo() const override;
 	void handleMenuOption(SavingsMenuOption option);
-
-	double getInterestRate() const;
-	void setInterestRate(double rate);
 };

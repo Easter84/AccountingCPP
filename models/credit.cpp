@@ -4,13 +4,11 @@
 
 CreditAccount::CreditAccount(
 	const std::string& accountName,
-	double startingBalance,
-	double limit,
-	double apr
+	double currentBalance,
+	double limit
 )
-	:Account(accountName, AccountType::Credit, startingBalance),
-	creditLimit(limit),
-	interestRate(apr)
+	:Account(accountName, AccountType::Credit, currentBalance, 15.0),
+	creditLimit(limit)
 {
 }
 
@@ -25,11 +23,10 @@ Account::TransactionResult CreditAccount::withdraw(double amount)
 
 void CreditAccount::displayAccountInfo() const
 {
-	std::cout << "Account Type: " << name
-		<< this->getType()
-		<< "\nBalance: $" << balance
-		<< "\nCredit Limit: $" << creditLimit
-		<< '\n';
+	std::cout << this->getType() << ": " << getName()
+		<< "\nBalance: $" << getBalance()
+		<< "\nCredit Limit: $" << this->creditLimit
+		<< "\n APR: " << this->interestRate << "%\n";
 }
 
 void CreditAccount::handleMenuOption(CreditMenuOption option)
@@ -61,9 +58,4 @@ void CreditAccount::handleMenuOption(CreditMenuOption option)
 		handleReturnMenuUI(*this);
 		return;
 	}
-}
-
-double CreditAccount::getInterestRate() const
-{
-	return this->interestRate;
 }

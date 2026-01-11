@@ -7,15 +7,13 @@ class CreditAccount : public Account
 	// Adds a new attribute to the derived class, that the parent doesn't have
 private:
 	double creditLimit;
-	double interestRate;
 
 	// Constructor for derived class with attributes
 public:
 	CreditAccount(
-		const std::string& accountName = "Credit",
-		double startingBalance = 0.0,
-		double limit = 1000.0,
-		double apr = 15.0
+		const std::string& accountName,
+		double currentBalance = 0.0,
+		double limit = 1000.0
 	);
 
 	// Overriding parent methods
@@ -42,5 +40,4 @@ public:
 	};
 
 	void handleMenuOption(CreditMenuOption opiton);
-	double getInterestRate() const;
 };

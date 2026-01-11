@@ -6,20 +6,17 @@
 
 Savings::Savings(
 	const std::string& accountName,
-	double interestRate,
-	double startingBalance
+	double currentBalance
 )
-	:Account(accountName, AccountType::Savings, startingBalance),
-	yearlyInterestRate(interestRate)
+	:Account(accountName, AccountType::Savings, currentBalance, 3.0)
 {
 }
 
 void Savings::displayAccountInfo() const
 {
-	std::cout << "Savings Account: " << this->name 
-		<< this->getType()
-		<< "\nBalance: $" << this->balance 
-		<< "\nInterest Rate: " << this->yearlyInterestRate << std::endl;
+	std::cout << this->getType() << ": " << getName()
+		<< "\nBalance: $" << getBalance()
+		<< "\nInterest Rate: " << this->interestRate << "%\n";
 }
 
 void Savings::handleMenuOption(SavingsMenuOption option)
@@ -48,17 +45,4 @@ void Savings::handleMenuOption(SavingsMenuOption option)
 			handleReturnMenuUI(*this);
 			return;
 	}
-}
-
-double Savings::getInterestRate() const
-{
-	return this->yearlyInterestRate;
-}
-
-void Savings::setInterestRate(double rate)
-{
-	if (rate < 0)
-		return;
-
-	yearlyInterestRate = rate;
 }

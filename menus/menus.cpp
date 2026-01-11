@@ -20,6 +20,7 @@ void showCheckingMenu(CheckingAccount& checking)
 {
 	while (true)
 	{
+		menuDelimiter(checking);
 		showMenu(checking.CheckingMenu);
 		int choice = get_int("\nSelect Option: ");
 
@@ -43,6 +44,7 @@ void showSavingsMenu(Savings& savings)
 {
 	while (true)
 	{
+		menuDelimiter(savings);
 		showMenu(savings.SavingsMenu);
 		int choice = get_int("\nSelect Option: ");
 
@@ -66,6 +68,7 @@ void showCreditMenu(CreditAccount& credit)
 {
 	while (true)
 	{
+		menuDelimiter(credit);
 		showMenu(credit.CreditMenu);
 		int choice = get_int("\nSelect Option: ");
 
@@ -83,4 +86,9 @@ void showCreditMenu(CreditAccount& credit)
 
 		credit.handleMenuOption(option);
 	}
+}
+
+void menuDelimiter(const Account& account)
+{
+	std::cout << "\n==========" << account.getType() << "==========\n";
 }

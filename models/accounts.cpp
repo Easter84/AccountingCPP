@@ -3,8 +3,8 @@
 
 // Constructor for Parent class with attributes
 Account::Account(const std::string& accountName,
-	AccountType accountType, double startingBalance)
-		: name(accountName), type(accountType),	balance(startingBalance)
+	AccountType accountType, double currentBalance, double interestRate)
+		: name(accountName), type(accountType),	balance(currentBalance), interestRate(interestRate)
 {
 }
 
@@ -56,4 +56,16 @@ const std::string Account::getType() const
 		default:
 			return "Unknown";
 	};
+}
+
+double Account::getInterestRate() const
+{
+	return this->interestRate;
+}
+
+void Account::setInterestRate(double rate)
+{
+	if (rate < 0)
+		return;
+	this->interestRate = rate;
 }

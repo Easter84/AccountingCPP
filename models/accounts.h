@@ -25,13 +25,15 @@ public:
 protected:
 	std::string name;
 	double balance;
+	double interestRate;
 	AccountType type;
 
 	// Public interface
 public:
 	Account(const std::string& accountName,
 		AccountType accountType,
-		double startingBalance = 0.0);
+		double currentBalance = 0.0,
+		double interestRate = 0.0);
 
 	// Virtual destructor for proper cleanup of derived classes
 	virtual ~Account() = default;
@@ -47,4 +49,6 @@ public:
 	double getBalance() const;
 	const std::string& getName() const;
 	const std::string getType() const;
+	double getInterestRate() const;
+	void setInterestRate(double rate);
 };

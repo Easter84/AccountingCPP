@@ -9,7 +9,7 @@ class CheckingAccount : public Account
 {
 public:
 	// Public constructor for CheckingAccount
-	CheckingAccount(const std::string& accountName, double startingBalance = 0.0);
+	CheckingAccount(const std::string& accountName, double currentBalance = 0.0);
 
 	// Enum for checking account menu options
 	enum class CheckingMenuOption
