@@ -11,7 +11,8 @@ private:
 
 public:
 	// Public constructor for Savings account
-	Savings(const std::string& accountName = "Savings",
+	Savings(const std::string& accountName,
+		double startingBalance,
 		double interestRate = 3.0
 	);
 

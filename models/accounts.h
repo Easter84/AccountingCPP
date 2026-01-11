@@ -3,15 +3,8 @@
 
 class Account
 {
-	// Private constructor with attributes
-protected:
-	std::string name;
-	double balance;
 
-	// Public interface
 public:
-	Account(const std::string& accountName, double startingBalance = 0.0);
-
 	// Added these enums to get away from basic boolean logic and allow for expanded error handling
 	enum class TransactionResult
 	{
@@ -20,6 +13,25 @@ public:
 		INVALID_AMOUNT,
 		OVER_CREDIT_LIMIT,
 	};
+	// Added an enum to hold all possible account types for ease of adaption
+	enum class AccountType
+	{
+		Checking,
+		Savings,
+		Credit
+	};
+
+	// Private constructor with attributes
+protected:
+	std::string name;
+	double balance;
+	AccountType type;
+
+	// Public interface
+public:
+	Account(const std::string& accountName,
+		AccountType accountType,
+		double startingBalance = 0.0);
 
 	// Virtual destructor for proper cleanup of derived classes
 	virtual ~Account() = default;
@@ -34,4 +46,5 @@ public:
 	// Concret method implementation, retrieves the current balance and is never overridden
 	double getBalance() const;
 	const std::string& getName() const;
+	const std::string getType() const;
 };

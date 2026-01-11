@@ -4,15 +4,18 @@
 #include "../utils/transaction_ui.h"
 
 // Constructor for CheckingAccount, calls the base class constructor
-CheckingAccount::CheckingAccount(const std::string& accountName)
-	: Account(accountName)
+CheckingAccount::CheckingAccount(const std::string& accountName, double startingBalance)
+	: Account(accountName, AccountType::Checking, startingBalance)
 {
 }
 
 void CheckingAccount::displayAccountInfo() const
 {
 	// Shows an easy to read summary of the account
-	std::cout << "Checking Account: " << getName() << ", Balance: $" << getBalance() << std::endl;
+	std::cout << this->getType() << '\n' 
+		<< getName() 
+		<< "\nBalance: $" << getBalance() 
+		<< std::endl;
 }
 
 

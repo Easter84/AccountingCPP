@@ -8,9 +8,9 @@
 
 int main() {
 
-	CheckingAccount checking;
-	Savings savings;
-	CreditAccount credit;
+	CheckingAccount checking("Timothy", 0.0);
+	Savings savings("Timothy", 0.0);
+	CreditAccount credit("Timothy", 0.0);
 
 	bool running = true;
 

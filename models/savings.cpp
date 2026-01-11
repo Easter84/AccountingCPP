@@ -6,9 +6,10 @@
 
 Savings::Savings(
 	const std::string& accountName,
-	double interestRate
+	double interestRate,
+	double startingBalance
 )
-	: Account(accountName),
+	:Account(accountName, AccountType::Savings, startingBalance),
 	yearlyInterestRate(interestRate)
 {
 }
@@ -16,6 +17,7 @@ Savings::Savings(
 void Savings::displayAccountInfo() const
 {
 	std::cout << "Savings Account: " << this->name 
+		<< this->getType()
 		<< "\nBalance: $" << this->balance 
 		<< "\nInterest Rate: " << this->yearlyInterestRate << std::endl;
 }

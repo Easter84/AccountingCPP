@@ -2,8 +2,9 @@
 #include <iostream>
 
 // Constructor for Parent class with attributes
-Account::Account(const std::string& accountName, double startingBalance)
-	: name(accountName), balance(startingBalance)
+Account::Account(const std::string& accountName,
+	AccountType accountType, double startingBalance)
+		: name(accountName), type(accountType),	balance(startingBalance)
 {
 }
 
@@ -34,10 +35,25 @@ Account::TransactionResult Account::withdraw(double amount)
 
 double Account::getBalance() const
 {
-	return balance;
+	return this->balance;
 }
 
 const std::string& Account::getName() const
 {
 	return name;
+}
+
+const std::string Account::getType() const
+{
+	switch (type)
+	{
+		case AccountType::Checking:
+			return "Checking";
+		case AccountType::Savings:
+			return "Savings";
+		case AccountType::Credit:
+			return "Credit";
+		default:
+			return "Unknown";
+	};
 }

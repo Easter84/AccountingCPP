@@ -3,14 +3,14 @@
 #include <iostream>
 
 CreditAccount::CreditAccount(
-	const std::string& accountName, 
+	const std::string& accountName,
 	double startingBalance,
 	double limit,
 	double apr
 )
-	: Account(accountName),
+	:Account(accountName, AccountType::Credit, startingBalance),
 	creditLimit(limit),
-	interestRate(apr)	
+	interestRate(apr)
 {
 }
 
@@ -26,6 +26,7 @@ Account::TransactionResult CreditAccount::withdraw(double amount)
 void CreditAccount::displayAccountInfo() const
 {
 	std::cout << "Account Type: " << name
+		<< this->getType()
 		<< "\nBalance: $" << balance
 		<< "\nCredit Limit: $" << creditLimit
 		<< '\n';
