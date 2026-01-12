@@ -130,6 +130,8 @@
     <Text Include="Readme.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="data\account_repository.cpp" />
+    <ClCompile Include="data\db_control.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menus\menus.cpp" />
     <ClCompile Include="models\accounts.cpp" />
@@ -140,6 +142,8 @@
     <ClCompile Include="utils\transaction_ui.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="data\account_repository.h" />
+    <ClInclude Include="data\db_control.h" />
     <ClInclude Include="menus\menus.h" />
     <ClInclude Include="models\accounts.h" />
     <ClInclude Include="models\checking.h" />
