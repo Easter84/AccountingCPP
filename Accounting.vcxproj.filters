@@ -42,10 +42,7 @@
     <ClCompile Include="utils\transaction_ui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="data\db_control.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="data\account_repository.cpp">
+    <ClCompile Include="data\database.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -74,10 +71,7 @@
     <ClInclude Include="utils\menu_ui.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="data\db_control.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="data\account_repository.h">
+    <ClInclude Include="data\database.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
