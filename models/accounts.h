@@ -1,6 +1,14 @@
 #pragma once
 #include <string>
 
+// Domain level object for use in DB operations
+struct AccountRecord
+{
+	int id{};
+	std::string username;
+	std::string passwordHash;
+};
+
 class Account
 {
 
